@@ -3,6 +3,7 @@ module Red_Social
 go 1.17
 
 require (
+	github.com/dgrijalva/jwt-go/v4 v4.0.0-preview1
 	github.com/gorilla/mux v1.8.0
 	github.com/rs/cors v1.8.2
 	go.mongodb.org/mongo-driver v1.8.3

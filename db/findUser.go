@@ -19,7 +19,10 @@ func CheckUserFind(email string) (models.User, bool, string) {
 	col := db.Collection("users")
 
 	//bson.M nos devuelve en formato JSON
-	condicion := bson.M{"email": email}
+	//La consulta que le realizaremos a nuestra bd
+	condicion := bson.M{
+		"email": email,
+	}
 
 	var resultado models.User
 

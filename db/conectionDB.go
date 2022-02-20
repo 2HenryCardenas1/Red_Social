@@ -11,6 +11,7 @@ import (
 
 var mongoConect = ConectarBD()
 
+//Esta es nuestra llamada a la bd
 var clientOptions = options.Client().ApplyURI("Aca ponen la direccion que le da mongodb")
 
 //Conectamos la base de datos

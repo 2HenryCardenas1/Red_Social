@@ -19,7 +19,11 @@ func Managers() {
 	router := mux.NewRouter()
 
 	//Rutas: nombre de la ruta - funcion que realiza - metodo el cual se envia lso datos
+
+	//Registro y login usan el mismo middleware
 	router.HandleFunc("/registro", middleware.CheckDB(routers.Registro)).Methods("POST")
+	router.HandleFunc("/login", middleware.CheckDB(routers.Login)).Methods("POST")
+	router.HandleFunc("/varPerfil", middleware.ValidateJWT(routers.VerPerfil)).Methods("POST")
 
 	PORT := os.Getenv("PORT")
 	if PORT == "" {
