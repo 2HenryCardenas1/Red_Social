@@ -14,7 +14,7 @@ func BuscoPerfil(id string) (models.User, error) {
 	ctx, cancel := context.WithTimeout(context.Background(), 10*time.Second)
 	defer cancel()
 
-	db := mongoConect.Database("twittor")
+	db := MongoConect.Database("twittor")
 	col := db.Collection("users")
 
 	var perfil models.User
@@ -33,5 +33,6 @@ func BuscoPerfil(id string) (models.User, error) {
 		fmt.Println("registro no encontrado ", err.Error())
 		return perfil, err
 	}
+	fmt.Println("Este es el id : ", objId)
 	return perfil, nil
 }

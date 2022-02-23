@@ -9,7 +9,7 @@ import (
 	"go.mongodb.org/mongo-driver/mongo/options"
 )
 
-var mongoConect = ConectarBD()
+var MongoConect = ConectarBD()
 
 //Esta es nuestra llamada a la bd
 var clientOptions = options.Client().ApplyURI("Aca ponen la direccion que le da mongodb")
@@ -47,7 +47,7 @@ func ConectarBD() *mongo.Client {
 func CheckConection() int {
 	contexT, cancel := context.WithTimeout(context.Background(), 10*time.Second)
 	defer cancel()
-	err := mongoConect.Ping(contexT, nil) //revisar si la bd esta encendida
+	err := MongoConect.Ping(contexT, nil) //revisar si la bd esta encendida
 
 	if err != nil {
 		log.Fatal(err.Error())

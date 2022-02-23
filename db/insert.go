@@ -15,7 +15,7 @@ func InsertRegister(user models.User) (string, bool, error) {
 	defer cancel()
 
 	//Llamando a la base de datos
-	db := mongoConect.Database("twittor")
+	db := MongoConect.Database("twittor")
 	//Llamando a la coleccion usuario
 	col := db.Collection("users")
 

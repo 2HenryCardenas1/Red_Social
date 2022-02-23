@@ -14,7 +14,7 @@ func CheckUserFind(email string) (models.User, bool, string) {
 	defer cancel()
 
 	//Llamando a la base de datos
-	db := mongoConect.Database("twittor")
+	db := MongoConect.Database("twittor")
 	//Llamando a la coleccion usuario
 	col := db.Collection("users")
 

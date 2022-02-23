@@ -23,7 +23,11 @@ func Managers() {
 	//Registro y login usan el mismo middleware
 	router.HandleFunc("/registro", middleware.CheckDB(routers.Registro)).Methods("POST")
 	router.HandleFunc("/login", middleware.CheckDB(routers.Login)).Methods("POST")
-	router.HandleFunc("/varPerfil", middleware.ValidateJWT(routers.VerPerfil)).Methods("POST")
+	router.HandleFunc("/verPerfil", middleware.CheckDB(middleware.ValidateJWT(routers.VerPerfil))).Methods("GET")
+	router.HandleFunc("/actualizarPerfil", middleware.CheckDB(middleware.ValidateJWT(routers.EditProfile))).Methods("PUT")
+	router.HandleFunc("/tweet", middleware.CheckDB(middleware.ValidateJWT(routers.GraboTweet))).Methods("POST")
+	router.HandleFunc("/leoTweet", middleware.CheckDB(middleware.ValidateJWT(routers.LeoTweet))).Methods("GET")
+	router.HandleFunc("/borroTweet", middleware.CheckDB(middleware.ValidateJWT(routers.EliminarTweet))).Methods("DELETE")
 
 	PORT := os.Getenv("PORT")
 	if PORT == "" {
