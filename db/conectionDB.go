@@ -12,7 +12,7 @@ import (
 var MongoConect = ConectarBD()
 
 //Esta es nuestra llamada a la bd
-var clientOptions = options.Client().ApplyURI("Aca ponen la direccion que le da mongodb")
+var clientOptions = options.Client().ApplyURI("mongodb+srv://redSocial:GBFaJrCloObHYpal@redsocial.p0onh.mongodb.net/twittor?retryWrites=true&w=majority")
 
 //Conectamos la base de datos
 func ConectarBD() *mongo.Client {
